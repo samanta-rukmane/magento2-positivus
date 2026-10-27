@@ -1,0 +1,67 @@
+/**
+ * Welcome to your Hyvä Theme!
+ *
+ * This is the main entry file for your theme's CSS, processed by Tailwind CSS.
+ *
+ * If you're new to TailwindCSS, get started with the official documentation:
+ * https://tailwindcss.com/
+ *
+ * To learn about creating a Hyvä Theme, check out the build guide:
+ * https://docs.hyva.io/hyva-themes/building-your-theme/index.html
+ *
+ * For Hyvä-specific topics, such as merging module CSS or using design tokens,
+ * please refer to the documentation:
+ * https://docs.hyva.io/hyva-themes/working-with-tailwindcss/index.html
+ */
+
+@import "@hyva-themes/hyva-modules/css";
+@import "tailwindcss" source(none);
+@source "../../**/*.phtml";
+@source "../../**/*.xml";
+@source "../../cms/**/*.html";
+
+/* Custom styles */
+@import "./base";
+@import "./components";
+@import "./theme";
+@import "./utilities";
+
+/* Import generated styles for Hyvä Compatible Modules and Design Tokens */
+@import "./generated/hyva-source.css";
+@import "./generated/hyva-tokens.css";
+@import "./generated/hyva-fonts.css";
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../fonts/space-grotesk.woff2") format("woff2");
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --color-lime: #B9FF66;
+    --color-dark: #191A23;
+    --color-gray: #F3F3F3;
+    
+    --color-ink: var(--color-slate-950);
+    --color-ink-muted: var(--color-slate-600);
+    --color-fg: var(--color-ink);
+    --color-fg-secondary: var(--color-ink-muted);
+    --color-bg: var(--color-slate-50);
+    --color-surface: var(--color-white);
+}
+
+/* Hide the default Hyva demo hero on the Positivus homepage */
+#hyva-demo-hero {
+    display: none !important;
+}
+
+
+@layer base {
+    html,
+    body {
+        background-color: #FFFFFF;
+    }
+}

@@ -1,0 +1,38 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+auth.json
+app/etc/env.php
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Generated files and caches
+/generated/
+/var/
+/pub/static/
+/pub/media/
+/pub/_cache/
+/app/code/*/Test/
+/app/code/*/tests/
+
+# IDE and operating system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+
+# Local database exports
+*.sql
+*.sql.gz
+
+
+# Local Magento resource configuration
+/pub/opt/magento/var/

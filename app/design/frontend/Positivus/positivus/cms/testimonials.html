@@ -1,0 +1,101 @@
+<section id="testimonials" class="mx-auto max-w-7xl px-6 py-16">
+  <div class="mb-12 flex flex-col gap-4 md:flex-row md:items-center md:gap-10">
+    <h2 class="inline-block rounded-md bg-[#B9FF66] px-2 text-3xl font-medium">Testimonials</h2>
+    <p class="text-lg">Hear from Our Satisfied Clients: Read Our Testimonials<br>to Learn More about Our Digital Marketing Services</p>
+  </div>
+
+  <div
+    x-data="{
+      i: 0,
+      items: [
+        { text: '&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;', name: 'John Smith', role: 'Marketing Director at XYZ Corp' },
+        { text: '&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;', name: 'John Smith', role: 'Marketing Director at XYZ Corp' },
+        { text: '&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;', name: 'John Smith', role: 'Marketing Director at XYZ Corp' },
+        { text: '&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;', name: 'John Smith', role: 'Marketing Director at XYZ Corp' },
+        { text: '&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;', name: 'John Smith', role: 'Marketing Director at XYZ Corp' }
+      ],
+      last() { return this.items.length - 1; },
+      style(n) {
+        const d = n - this.i;
+        return `transform: translateX(${d * 105}%); opacity: ${Math.abs(d) <= 1 ? 1 : 0};`;
+      },
+      prev() { if (this.i > 0) this.i--; },
+      next() { if (this.i < this.last()) this.i++; }
+    }"
+    class="overflow-hidden rounded-[2rem] bg-[#191A23] px-4 py-12 md:rounded-[45px] md:px-10 md:py-16"
+  >
+    <div class="relative mx-auto h-[420px] max-w-6xl md:h-[360px]">
+
+      <!-- Призрак слева: показывается только на первом сообщении -->
+      <div
+        x-show="i === 0"
+        class="absolute left-[17%] top-0 w-[66%] md:left-[19%] md:w-[62%]"
+        style="transform: translateX(-105%);"
+        aria-hidden="true"
+      >
+        <div class="relative rounded-[1.5rem] border-[0.5px] border-[#B9FF66]/80 bg-[#191A23] p-6 text-white md:rounded-[45px] md:p-10">
+          <p class="text-base leading-7 md:text-lg" x-text="items[last()].text"></p>
+          <span class="absolute -bottom-3 left-8 h-6 w-6 rotate-45 border-b-[0.5px] border-r-[0.5px] border-[#B9FF66]/80 bg-[#191A23] md:left-16"></span>
+        </div>
+        <div class="ml-8 mt-8 md:ml-16">
+          <p class="text-xl font-medium text-[#B9FF66]" x-text="items[last()].name"></p>
+          <p class="text-base text-white" x-text="items[last()].role"></p>
+        </div>
+      </div>
+
+      <!-- Призрак справа: показывается только на последнем сообщении -->
+      <div
+        x-show="i === last()"
+        class="absolute left-[17%] top-0 w-[66%] md:left-[19%] md:w-[62%]"
+        style="transform: translateX(105%);"
+        aria-hidden="true"
+      >
+        <div class="relative rounded-[1.5rem] border-[0.5px] border-[#B9FF66]/80 bg-[#191A23] p-6 text-white md:rounded-[45px] md:p-10">
+          <p class="text-base leading-7 md:text-lg" x-text="items[0].text"></p>
+          <span class="absolute -bottom-3 left-8 h-6 w-6 rotate-45 border-b-[0.5px] border-r-[0.5px] border-[#B9FF66]/80 bg-[#191A23] md:left-16"></span>
+        </div>
+        <div class="ml-8 mt-8 md:ml-16">
+          <p class="text-xl font-medium text-[#B9FF66]" x-text="items[0].name"></p>
+          <p class="text-base text-white" x-text="items[0].role"></p>
+        </div>
+      </div>
+
+      <!-- Реальные сообщения -->
+      <template x-for="(t, n) in items" :key="n">
+        <div
+          class="absolute left-[17%] top-0 w-[66%] transition-transform duration-500 ease-out md:left-[19%] md:w-[62%]"
+          :style="style(n)"
+        >
+          <div class="relative rounded-[1.5rem] border-[0.5px] border-[#B9FF66]/80 bg-[#191A23] p-6 text-white md:rounded-[45px] md:p-10">
+            <p class="text-base leading-7 md:text-lg" x-text="t.text"></p>
+            <span class="absolute -bottom-3 left-8 h-6 w-6 rotate-45 border-b-[0.5px] border-r-[0.5px] border-[#B9FF66]/80 bg-[#191A23] md:left-16" aria-hidden="true"></span>
+          </div>
+          <div class="ml-8 mt-8 md:ml-16">
+            <p class="text-xl font-medium text-[#B9FF66]" x-text="t.name"></p>
+            <p class="text-base text-white" x-text="t.role"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div class="mt-10 flex items-center justify-center gap-40">
+      <button type="button" @click="prev()" :disabled="i === 0" aria-label="Previous testimonial" class="p-2 disabled:cursor-default">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :stroke="i === 0 ? '#5A5B63' : '#FFFFFF'" aria-hidden="true"><path d="M5 12h14M12 19l-7-7 7-7"/></svg>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <template x-for="(t, n) in items" :key="n">
+          <button type="button" @click="i = n" :aria-label="'Show testimonial ' + (n + 1)" class="p-0.5">
+            <svg class="h-3 w-3" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M0 0 Q20 12 40 0 Q28 20 40 40 Q20 28 0 40 Q12 20 0 0Z" :fill="i === n ? '#B9FF66' : '#FFFFFF'"/>
+            </svg>
+          </button>
+        </template>
+      </div>
+
+      <button type="button" @click="next()" :disabled="i === last()" aria-label="Next testimonial" class="p-2 disabled:cursor-default">
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :stroke="i === last() ? '#5A5B63' : '#FFFFFF'" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>

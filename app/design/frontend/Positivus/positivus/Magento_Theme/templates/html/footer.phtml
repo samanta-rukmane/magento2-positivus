@@ -1,0 +1,124 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+$navItems = [
+    ['About us',  '#about'],
+    ['Services',  '#services'],
+    ['Use Cases', '#use-cases'],
+    ['Pricing',   '#pricing'],
+    ['Blog',      '#blog'],
+];
+?>
+<footer class="mx-4 rounded-t-[40px] bg-[#191A23] px-6 py-8 text-white md:mx-8 md:px-10 md:py-10">
+    <div class="mx-auto max-w-7xl">
+
+        <!-- Footer top row -->
+        <div class="-translate-y-1 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+
+            <!-- Logo -->
+            <a href="<?= $escaper->escapeUrl($block->getUrl('')) ?>"
+               class="inline-flex shrink-0 items-center gap-2 self-start text-white"
+               aria-label="Positivus home">
+                <svg width="36" height="36" viewBox="0 0 36 36"
+                     fill="none" xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+                    <path d="M17.651 5.1856L35.2521 0L30.1163 17.651L35.2521 35.2521L17.651 30.1163L0 35.2521L5.1856 17.651L0 0L17.651 5.1856Z"
+                          fill="#FFFFFF"/>
+                </svg>
+                <span class="font-sans text-[28px] font-medium tracking-tight">Positivus</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="flex flex-wrap gap-x-5 gap-y-3 lg:justify-center xl:gap-x-6"
+                 aria-label="Footer navigation">
+                <?php foreach ($navItems as [$label, $href]): ?>
+                    <a class="text-[15px] text-white/85 underline underline-offset-4 transition-colors hover:text-[#B9FF66]"
+                       href="<?= $escaper->escapeUrl($href) ?>"><?= $escaper->escapeHtml($label) ?></a>
+                <?php endforeach; ?>
+            </nav>
+
+            <!-- Social icons -->
+            <div class="flex -translate-y-0.5 items-center gap-4 lg:shrink-0">
+                <a href="#" aria-label="LinkedIn"
+                   class="inline-flex items-center justify-center transition-opacity hover:opacity-70">
+                    <img src="<?= $escaper->escapeUrl($block->getViewFileUrl('images/social/linkedin.svg')) ?>"
+                         alt="" width="27" height="27" loading="lazy"/>
+                </a>
+                <a href="#" aria-label="Facebook"
+                   class="inline-flex items-center justify-center transition-opacity hover:opacity-70">
+                    <img src="<?= $escaper->escapeUrl($block->getViewFileUrl('images/social/facebook.svg')) ?>"
+                         alt="" width="27" height="27" loading="lazy"/>
+                </a>
+                <a href="#" aria-label="Twitter"
+                   class="inline-flex items-center justify-center transition-opacity hover:opacity-70">
+                    <img src="<?= $escaper->escapeUrl($block->getViewFileUrl('images/social/twitter.svg')) ?>"
+                         alt="" width="27" height="27" loading="lazy"/>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact information and newsletter -->
+        <div class="mt-10 grid gap-8 border-b border-white/20 pb-8 md:mt-12 lg:grid-cols-2 lg:gap-10">
+
+            <!-- Contact information -->
+            <div>
+                <h2 class="inline-block rounded-md bg-[#B9FF66] px-2 py-0.5 text-base font-semibold text-[#191A23]">
+                    Contact us:
+                </h2>
+
+                <div class="mt-4 flex flex-col items-start gap-3 text-[15px] text-white/85">
+                    <p>Email: <a class="transition-colors hover:text-[#B9FF66]"
+                                 href="mailto:hello@positivus.example">info@positivus.com</a></p>
+
+                    <p>Phone: <a class="transition-colors hover:text-[#B9FF66]"
+                                 href="tel:+10000000000">555-567-8901</a></p>
+
+                    <p>Address: 1234 Main St <br> Moonstone City, Stardust State 12345</p>
+                </div>
+            </div>
+
+            <!-- Newsletter subscription -->
+            <div class="flex flex-col justify-center gap-4 rounded-2xl bg-[#292A32] p-6 sm:flex-row sm:items-center md:p-8">
+                <form action="#" method="get"
+                      class="flex w-full flex-col gap-4 sm:flex-row"
+                      x-data="{ email: '' }"
+                      @submit.prevent="if (email.trim()) window.location.href = 'mailto:hello@positivus.example?subject=Newsletter subscription&body=' + encodeURIComponent(email)">
+                    <label class="sr-only" for="footer-newsletter-email">Email</label>
+                    <input
+                        id="footer-newsletter-email"
+                        type="email"
+                        name="email"
+                        x-model="email"
+                        placeholder="Email"
+                        required
+                        class="min-w-0 flex-1 rounded-xl border border-white/70 bg-transparent px-5 py-4 text-white placeholder:text-white/80 focus:outline-none focus:ring-1 focus:ring-[#B9FF66]"
+                    />
+
+                    <button
+                        type="submit"
+                        class="rounded-xl bg-[#B9FF66] px-5 py-4 font-normal text-[#191A23] transition-colors hover:bg-white sm:shrink-0"
+                    >
+                        Subscribe to news
+                    </button>
+                </form>
+            </div>
+        </div>
+
+                <!-- Copyright -->
+        <div class="flex flex-col gap-3 pt-6 text-sm text-white sm:flex-row sm:items-center sm:gap-8">
+            <p>
+                © 2023 Positivus. All Rights Reserved.
+            </p>
+
+            <a href="#privacy-policy"
+               class="underline underline-offset-4 transition-colors hover:text-[#B9FF66]">
+                Privacy Policy
+            </a>
+        </div>
+</footer>

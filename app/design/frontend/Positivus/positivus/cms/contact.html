@@ -1,0 +1,42 @@
+<section id="contact" class="mx-auto max-w-7xl px-6 py-16 text-[#191A23]">
+  <div class="mb-12 flex flex-col gap-4 md:flex-row md:items-center md:gap-10">
+    <h2 class="inline-block rounded-md bg-[#B9FF66] px-2 text-3xl font-medium text-[#191A23]">Contact Us</h2>
+    <p class="max-w-xl text-lg text-[#191A23]">Connect with Us: Let's Discuss Your<br>Digital Marketing Needs</p>
+  </div>
+
+  <div class="grid items-center gap-10 overflow-hidden rounded-[2rem] bg-[#F3F3F3] p-8 text-[#191A23] md:grid-cols-2 md:rounded-[45px] md:p-14">
+    <form action="mailto:hello@positivus.example" method="post" enctype="text/plain" class="flex flex-col gap-6 text-[#191A23]">
+      <div class="flex flex-wrap gap-8">
+        <label class="flex cursor-pointer items-center gap-3 text-lg text-[#191A23]">
+          <input type="radio" name="topic" value="say-hi" checked class="h-7 w-7 shrink-0 appearance-none rounded-full border border-[#191A23] bg-white checked:bg-[radial-gradient(circle_closest-side,#B9FF66_0_55%,#FFFFFF_55%_100%)]">
+          Say Hi
+        </label>
+        <label class="flex cursor-pointer items-center gap-3 text-lg text-[#191A23]">
+          <input type="radio" name="topic" value="quote" class="h-7 w-7 shrink-0 appearance-none rounded-full border border-[#191A23] bg-white checked:bg-[radial-gradient(circle_closest-side,#B9FF66_0_55%,#FFFFFF_55%_100%)]">
+          Get a Quote
+        </label>
+      </div>
+
+      <label class="flex flex-col gap-2 text-base text-[#191A23]">
+        Name
+        <input type="text" name="name" placeholder="Name" class="rounded-xl border border-[#191A23] bg-white px-6 py-3 text-[#191A23] outline-none placeholder:text-[#8A8B91] focus:ring-2 focus:ring-[#B9FF66]">
+      </label>
+
+      <label class="flex flex-col gap-2 text-base text-[#191A23]">
+        Email*
+        <input type="email" name="email" required placeholder="Email" class="rounded-xl border border-[#191A23] bg-white px-6 py-3 text-[#191A23] outline-none placeholder:text-[#8A8B91] focus:ring-2 focus:ring-[#B9FF66]">
+      </label>
+
+      <label class="flex flex-col gap-2 text-base text-[#191A23]">
+        Message*
+        <textarea name="message" rows="6" required placeholder="Message" class="resize-none rounded-xl border border-[#191A23] bg-white px-6 py-3 text-[#191A23] outline-none placeholder:text-[#8A8B91] focus:ring-2 focus:ring-[#B9FF66]"></textarea>
+      </label>
+
+      <button type="submit" class="w-full rounded-xl bg-[#191A23] px-7 py-5 text-lg text-white transition hover:opacity-90">Send Message</button>
+    </form>
+
+    <div class="relative h-full min-h-[360px] self-stretch">
+      <img src="/static/frontend/Positivus/positivus/en_US/images/contact.svg" alt="" class="absolute left-[45%] top-1/2 h-[110%] w-auto max-w-none -translate-y-1/2" loading="lazy">
+    </div>
+  </div>
+</section>
